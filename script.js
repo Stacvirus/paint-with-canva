@@ -2,13 +2,18 @@ var canvas = document.querySelector('canvas');
 var context = canvas.getContext('2d');
 
 const colors = document.querySelector('.colors')
+const thickness = document.querySelector('.bold')
+const eraser = document.querySelector('.eraser')
+
+let isArase = false
+const newColor = {}
 
 //resize canvas
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight / 1.6;
 
 //settings of the canvas
-context.strokeStyle = "#BADASS";
+context.strokeStyle = "black";
 context.lineJoin = "round";
 context.lineCap = "round";
 context.lineWidth = 20;
@@ -29,11 +34,13 @@ function draw(e) {
     hue++;
 }
 
-function selectColor(e) {
-    context.strokeStyle = e.target.value
+function selectOption(e) {
+    const { value, name } = e.target
+    console.log(value)
+    if (name != 'lineWidth') newColor.color = value
+    name == 'strokeStyle' ? context.strokeStyle = value : context.lineWidth = value
 }
 
-colors.addEventListener('change', selectColor)
 
 canvas.addEventListener('mousedown', (e) => {
     isDraw = true;
@@ -44,4 +51,21 @@ canvas.addEventListener('mousedown', (e) => {
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => isDraw = false);
 canvas.addEventListener('mouseout', () => isDraw = false);
+
+//other options
+colors.addEventListener('change', selectOption)
+thickness.addEventListener('change', selectOption)
+eraser.addEventListener('change', () => {
+    console.log('in eraser function')
+    isArase = !isArase
+    !isArase
+        ? newColor.color
+            ? context.strokeStyle = newColor.color : context.strokeStyle = 'black'
+        : eraserOption()
+})
+
+function eraserOption() {
+    console.log(isArase)
+    context.strokeStyle = "#ffff";
+}
 
