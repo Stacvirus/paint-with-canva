@@ -27,10 +27,38 @@ canvas {
   background: color-mix(in srgb, white 70%, transparent 10%);
   gap: 20px;
   padding: 25px;
+  position: relative;
 }
 
 canvas,
 .tools {
   border-radius: 10px;
   border: 1px solid gray;
+}
+
+.download {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button svg {
+  color: #fff;
+  cursor: pointer;
+}
+
+.svg {
+  border-radius: 50px;
+}
+
+.erasers,
+.color_options {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
 }
