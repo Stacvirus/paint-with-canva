@@ -111,5 +111,5 @@ function showShadow() {
 
 //clear the board
 clear.addEventListener('click', () => {
-    window.confirm('I sure you want to clear your work ?') && context.clearRect(0, 0, canvas.width, canvas.height)
+    window.confirm('Are sure you want to clear your work ?') && context.clearRect(0, 0, canvas.width, canvas.height)
 })
