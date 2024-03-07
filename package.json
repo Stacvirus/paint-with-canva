@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "git add . && git commit -m 'more options with icons added' && git push"
+    "deploy": "git add . && git commit -m 'some code refactoring' && git push"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
     "vite": "^5.1.4"
   },
   "dependencies": {
